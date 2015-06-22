@@ -1,0 +1,17 @@
+{
+  "name": "flashbag-js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nuxia/flashbag-js",
+  "authors": [
+    "Alexandre Dupuy <alex.dpy@gmail.com>"
+  ],
+  "main": "js/flashbag.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
