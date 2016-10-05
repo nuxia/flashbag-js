@@ -4,14 +4,9 @@
         var _this = this;
 
         var enabled = false;
+        var autoCloseDelay = 4000;
         var $flashBagSkeleton;
         var html;
-
-        var autoclose = function($element, delay, fadeOut) {
-            $element.delay(delay || 4000).fadeOut(fadeOut || 2000, function() {
-                $element.remove();
-            });
-        };
 
         _this.init = function() {
             $flashBagSkeleton = $('#flashbag-skeleton');
@@ -45,14 +40,14 @@
             $flashBag.show();
 
             if (options.autoclose) {
-                autoclose($flashBag);
+                closeFlashBag($flashBag, autoCloseDelay);
             }
 
             return $flashBag;
         };
 
         _this.close = function(selector) {
-            autoclose($(selector));
+            closeFlashBag($(selector), autoCloseDelay);
         }
     };
 
@@ -60,5 +55,10 @@
         $.FlashBag = new FlashBag();
         $.FlashBag.init();
     });
-
 }(jQuery));
+
+function closeFlashBag($element, delay, fadeOut) {
+    $element.delay(delay || 0).fadeOut(fadeOut || 2000, function() {
+        $element.remove();
+    });
+}
